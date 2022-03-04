@@ -1243,7 +1243,7 @@ public class OntologyManagerImpl
             AtomicBoolean allNoOps = new AtomicBoolean(true);
             // list of changes applied successfully. These are the changes that
             // will be reverted in case of a rollback
-            List<OWLOntologyChange> appliedChanges = new ArrayList<>();
+            List<OWLOntologyChange> appliedChanges = new ArrayList<>(changes.size());
             listeners.fireBeginChanges(changes.size());
             actuallyApply(changes, rollbackRequested, allNoOps, appliedChanges);
             if (rollbackRequested.get()) {
